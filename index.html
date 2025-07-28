@@ -202,98 +202,105 @@
         </div>
     
     <script>
-        // Message to be typed
-        const message = "haiii kamuuu, iya kamu, sebenernya jni confess doang, bukan nembak, sebenernya aku udah suka kamu dari 1 tahun an lebih, ya mau 2 taun siii, selama aku suka sama kamu, aku bikin aku berfikir bahwa kamu itu adalah semangat hidup ku selama 1 tahun lebih ituu, bangga, senang, banyak rasa yang tumbuh saat aku menyukaimu, kamu juga seperti pedoman hidup aku, motivasi, banyak yang bikin aku berubah banyak dari perilaku kamu, walau kita dekat dulu, saling suka, tapi aku gatau kamu masih suka sama aku atau enggak.....
+    // Pesan yang ingin diketik
+    const message = `haiii kamuuu, iya kamu, sebenernya ini confess doang, bukan nembak, 
+sebenernya aku udah suka kamu dari 1 tahunan lebih, ya mau 2 tahun sih. 
+Selama aku suka sama kamu, aku bikin aku berpikir bahwa kamu itu adalah semangat hidupku selama 1 tahun lebih itu. 
+Bangga, senang, banyak rasa yang tumbuh saat aku menyukaimu. 
+Kamu juga seperti pedoman hidup aku, motivasi. 
+Banyak yang bikin aku berubah dari perilaku kamu. 
+Walau kita dekat dulu, saling suka, tapi aku nggak tahu kamu masih suka sama aku atau enggak.
+Tapi gapapa, aku tetap setia pada perasaan ini, mungkin sampai aku dan kamu tidak bisa saling eye contact. 
+Aku masih simpan foto lama mu yang kamu kirim, aku juga sering lihat foto kamu saat aku kangen sama kamu...
 
-tapi gapapa, aku tetap setia pada perasaan ini, mungkin sampai aku dan kamu tidak bisa saling eye contact, aku masih simpan foto lama mu yang kamu kirim, aku juga sering lihat foto kamu saat aku kangen sama kamu...... 
+Aku pernah bermimpi, bahwa kamu sudah tiada, aku nangis sejadi-jadinya sampai aku tidak bisa berbuat apa-apa selain menangis. 
+Dalam perasaan ku berkata, bahwa, "aku tidak bisa melihatmu lagi terakhir kali, dan tak akan pernah bisa melihatmu lagi. 
+Walau mungkin kita akan bertemu di akhirat, tetapi kita tidak tahu kapan kita bertemu di akhirat. 
+Saat aku masuk ke akhirat, aku masuk neraka dahulu, atau langsung ke surga?"
 
-aku pernah bermimpi, bahwa kamu sudah tiada, aku nangis se jadi jadi nya sampai aku tidak bisa berbuat apa apa selain menangis, dalam perasaaan ku berkata, bahwa, "aku tidak bisa melihat mu lagi terakhir kali, dan tak akan pernah bisa melihatmu lagi, walau mungkin kita akan bertemu di akhirat, tetapi kita tidak tau kapan kita bertemu di akhirat, saat aku masuk ke akhirat, aku masuk neraka dahulu, atau langsung ke surga. "......
- 
-setelah aku terbangun dari mimpi yang seperti di neraka itu, aku merasa, bahwa aku telah mencintai seseorang sangat dalam, aku tidak tau, kamu adalah masa depan ku, atau kamu akan menjadu masa lalu ku di masa depan. 
+Setelah aku terbangun dari mimpi yang seperti di neraka itu, aku merasa bahwa aku telah mencintai seseorang sangat dalam. 
+Aku tidak tahu, kamu adalah masa depan ku, atau kamu akan menjadi masa lalu ku di masa depan. 
 
--berdasarkan kisah nyata";
-        
-        document.getElementById('loginBtn').addEventListener('click', function() {
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            if (password === 'gatau') {
-                // Correct password
-                document.getElementById('loginPage').style.display = 'none';
-                document.getElementById('homePage').style.display = 'block';
-                
-                // Add celebration animation
-                for (let i = 0; i < 20; i++) {
-                    setTimeout(() => {
-                        createHeart();
-                    }, i * 150);
-                }
-                
-                // Start typing animation
-                typeMessage();
-                
-            } else {
-                // Wrong password
-                errorMessage.textContent = 'Password salah... coba ingat-ingat lagi!';
-                document.getElementById('password').style.boxShadow = '0 5px 15px rgba(255, 71, 87, 0.4)';
-                
+- berdasarkan kisah nyata`;
+
+    document.getElementById('loginBtn').addEventListener('click', function () {
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (password === 'gatau') {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('homePage').style.display = 'block';
+
+            // ✅ aktifkan scroll
+            document.body.style.overflow = 'auto';
+
+            // Tambahkan animasi hati
+            for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
-                    errorMessage.textContent = '';
-                    document.getElementById('password').style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-                }, 2000);
+                    createHeart();
+                }, i * 150);
             }
-        });
-        
-        // Also allow Enter key to submit
-        document.getElementById('password').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.getElementById('loginBtn').click();
-            }
-        });
-        
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            
-            // Random position
-            const x = Math.random() * 100;
-            const y = Math.random() * 100;
-            heart.style.left = x + '%';
-            heart.style.top = y + '%';
-            
-            // Random size
-            const size = Math.random() * 15 + 10;
-            heart.style.width = size + 'px';
-            heart.style.height = size + 'px';
-            
-            // Random animation delay
-            heart.style.animationDelay = Math.random() * 3 + 's';
-            
-            document.body.appendChild(heart);
-            
-            // Remove after animation completes
+
+            typeMessage();
+
+        } else {
+            errorMessage.textContent = 'Password salah... coba ingat-ingat lagi!';
+            document.getElementById('password').style.boxShadow = '0 5px 15px rgba(255, 71, 87, 0.4)';
+
             setTimeout(() => {
-                heart.remove();
-            }, 5000);
+                errorMessage.textContent = '';
+                document.getElementById('password').style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            }, 2000);
         }
-        
-        function typeMessage() {
-            const welcomeEl = document.getElementById('welcomeMessage');
-            let charIndex = 0;
-            
-            function type() {
-                if (charIndex < message.length) {
-                    welcomeEl.innerHTML = message.substring(0, charIndex) + '<span class="typing-text"></span>';
-                    charIndex++;
-                    // Reduce typing delay to 120ms for smoother typing
-                    setTimeout(type, 30); 
-                } else {
-                    welcomeEl.innerHTML = message;
-                }
+    });
+
+    document.getElementById('password').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            document.getElementById('loginBtn').click();
+        }
+    });
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        heart.style.left = x + '%';
+        heart.style.top = y + '%';
+
+        const size = Math.random() * 15 + 10;
+        heart.style.width = size + 'px';
+        heart.style.height = size + 'px';
+
+        heart.style.animationDelay = Math.random() * 3 + 's';
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    function typeMessage() {
+        const welcomeEl = document.getElementById('welcomeMessage');
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < message.length) {
+                welcomeEl.innerHTML = message.substring(0, charIndex) + '<span class="typing-text"></span>';
+                charIndex++;
+
+                // ✅ scroll otomatis ke bawah saat ngetik
+                welcomeEl.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+                // ✅ kecepatan ngetik diperhalus
+                setTimeout(type, 60); 
+            } else {
+                welcomeEl.innerHTML = message;
             }
-            
-            type();
         }
+
+        type();
+    }
     </script>
-</body>
-</html>
